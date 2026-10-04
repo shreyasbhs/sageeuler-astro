@@ -15,6 +15,7 @@ export default defineConfig({
     sitemap(),
     decapCmsOauth({
       configPath: 'src/data/decap-config.yml',
+      adminDisabled: true,
       oauthDisabled: true,
     }),
   ],

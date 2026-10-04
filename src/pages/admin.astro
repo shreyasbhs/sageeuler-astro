@@ -1,0 +1,28 @@
+---
+const decapCmsSrcUrl =
+  import.meta.env.PUBLIC_DECAP_CMS_SRC_URL ||
+  'https://unpkg.com/decap-cms@^3.16.3/dist/decap-cms.js';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link href={`${Astro.url.pathname.replace(/\/$/, '')}/config.yml`} type="text/yaml" rel="cms-config-url" />
+    <title>Content Manager</title>
+
+    <script>
+      import { initBasicRum } from '@basicrum/beacon-client';
+
+      initBasicRum({
+        beaconUrl: 'https://beacon.beta.basicrum.com/beacon/catcher',
+        siteId: 'fdb7a2ed-d0ed-42a4-87ee-73c617da3965',
+      });
+    </script>
+  </head>
+  <body>
+    <script is:inline src={decapCmsSrcUrl}></script>
+  </body>
+</html>
