@@ -82,5 +82,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</article>
 		</main>
 		<Footer />
+		<!-- Initialize the BasicRUM beacon in the browser -->
+		<script>
+			import { initBasicRum } from "@basicrum/beacon-client";
+
+			initBasicRum({
+				beaconUrl: "https://beacon.beta.basicrum.com/beacon/catcher",
+				siteId: "fdb7a2ed-d0ed-42a4-87ee-73c617da3965",
+			});
+		</script>
 	</body>
 </html>
