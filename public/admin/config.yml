@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: shreyasbhs/sageeuler-astro
+  branch: master
+  site_domain: blog.sage-euler.com
+  base_url: https://blog.sage-euler.com
+  auth_endpoint: oauth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
