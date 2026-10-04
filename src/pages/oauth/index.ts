@@ -1,12 +1,17 @@
 import type { APIRoute } from 'astro';
-import { OAUTH_GITHUB_CLIENT_ID } from 'astro:env/server';
 
 export const prerender = false;
 
 export const GET: APIRoute = ({ url, redirect }) => {
+  const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
+
+  if (!clientId) {
+    throw new Error('OAUTH_GITHUB_CLIENT_ID is not configured');
+  }
+
   const redirectUri = new URL('/oauth/callback', url.origin).toString();
   const params = new URLSearchParams({
-    client_id: OAUTH_GITHUB_CLIENT_ID,
+    client_id: clientId,
     redirect_uri: redirectUri,
     scope: 'repo,user',
   });

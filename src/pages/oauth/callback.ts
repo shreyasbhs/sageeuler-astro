@@ -1,16 +1,23 @@
 import type { APIRoute } from 'astro';
-import { OAUTH_GITHUB_CLIENT_ID, OAUTH_GITHUB_CLIENT_SECRET, OAUTH_GITHUB_REPO_ID } from 'astro:env/server';
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ url, redirect }) => {
+  const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
+  const clientSecret = process.env.OAUTH_GITHUB_CLIENT_SECRET;
+  const repoId = process.env.OAUTH_GITHUB_REPO_ID;
+
+  if (!clientId || !clientSecret) {
+    throw new Error('GitHub OAuth credentials are not configured');
+  }
+
   const redirectUri = new URL('/oauth/callback', url.origin).toString();
   const data = {
     code: url.searchParams.get('code'),
-    client_id: OAUTH_GITHUB_CLIENT_ID,
-    client_secret: OAUTH_GITHUB_CLIENT_SECRET,
+    client_id: clientId,
+    client_secret: clientSecret,
     redirect_uri: redirectUri,
-    ...(OAUTH_GITHUB_REPO_ID ? { repository_id: OAUTH_GITHUB_REPO_ID } : {}),
+    ...(repoId ? { repository_id: repoId } : {}),
   };
 
   try {
