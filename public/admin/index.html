@@ -7,5 +7,36 @@
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+
+      const config = {
+        backend: {
+          name: 'github',
+          repo: 'shreyasbhs/sageeuler-astro',
+          branch: 'master',
+          auth_scope: 'repo',
+        },
+        media_folder: 'public/uploads',
+        public_folder: '/uploads',
+        collections: [
+          {
+            name: 'blog',
+            label: 'Blog',
+            folder: 'src/content/blog',
+            create: true,
+            slug: '{{slug}}',
+            fields: [
+              { label: 'Title', name: 'title', widget: 'string' },
+              { label: 'Description', name: 'description', widget: 'text' },
+              { label: 'Publish Date', name: 'pubDate', widget: 'datetime' },
+              { label: 'Body', name: 'body', widget: 'markdown' },
+            ],
+          },
+        ],
+      };
+
+      window.CMS.init({ config });
+    </script>
   </body>
 </html>
