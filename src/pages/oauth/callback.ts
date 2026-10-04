@@ -11,7 +11,7 @@ export const GET: APIRoute = async ({ url, redirect }) => {
     throw new Error('GitHub OAuth credentials are not configured');
   }
 
-  const redirectUri = new URL('/oauth/callback', url.origin).toString();
+  const redirectUri = process.env.OAUTH_GITHUB_REDIRECT_URI || 'https://blog.sage-euler.com/oauth/callback';
   const data = {
     code: url.searchParams.get('code'),
     client_id: clientId,
