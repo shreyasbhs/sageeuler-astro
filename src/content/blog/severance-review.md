@@ -1,8 +1,12 @@
 ---
-title: 'Severance Review: A Brilliant Spiral Into Work, Identity, and Memory'
-description: 'A thoughtful review of Severance and why it works as a sci-fi thriller, a workplace satire, and a deeply human story.'
-pubDate: '2026-10-04'
+title: "Severance Review: A Brilliant Spiral Into Work, Identity, and Memory"
+description: A thoughtful review of Severance and why it works as a sci-fi
+  thriller, a workplace satire, and a deeply human story.
+pubDate: 2026-10-04
 ---
+
+
+![](/uploads/severance.jpeg)
 
 If there’s one show that manages to be both deeply unsettling and incredibly addictive, it’s *Severance*.
 
