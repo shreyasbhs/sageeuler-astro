@@ -2,6 +2,7 @@ backend:
   name: github
   repo: shreyasbhs/sageeuler-astro
   branch: master
+  auth_scope: repo
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
