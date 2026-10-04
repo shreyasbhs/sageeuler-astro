@@ -50,3 +50,12 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
+
+<script>
+	import { initBasicRum } from '@basicrum/beacon-client';
+
+	initBasicRum({
+		beaconUrl: 'https://beacon.beta.basicrum.com/beacon/catcher',
+		siteId: 'fdb7a2ed-d0ed-42a4-87ee-73c617da3965',
+	});
+</script>
