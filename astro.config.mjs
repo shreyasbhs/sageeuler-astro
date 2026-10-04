@@ -10,7 +10,14 @@ import node from '@astrojs/node';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://blog.sage-euler.com',
-  integrations: [mdx(), sitemap(), decapCmsOauth({ configPath: 'src/data/decap-config.yml' })],
+  integrations: [
+    mdx(),
+    sitemap(),
+    decapCmsOauth({
+      configPath: 'src/data/decap-config.yml',
+      oauthDisabled: true,
+    }),
+  ],
 
   fonts: [
       {
