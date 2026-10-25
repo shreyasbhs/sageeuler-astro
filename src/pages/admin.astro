@@ -13,14 +13,6 @@ const decapCmsSrcUrl =
     <link href={`${Astro.url.pathname.replace(/\/$/, '')}/config.yml`} type="text/yaml" rel="cms-config-url" />
     <title>Content Manager</title>
 
-    <script>
-      import { initBasicRum } from '@basicrum/beacon-client';
-
-      initBasicRum({
-        beaconUrl: 'https://beacon.beta.basicrum.com/beacon/catcher',
-        siteId: 'fdb7a2ed-d0ed-42a4-87ee-73c617da3965',
-      });
-    </script>
   </head>
   <body>
     <script is:inline src={decapCmsSrcUrl}></script>

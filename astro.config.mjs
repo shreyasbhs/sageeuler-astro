@@ -3,6 +3,7 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import basicrum from '@basicrum/basicrum-astro';
 import decapCmsOauth from 'astro-decap-cms-oauth';
 
 import node from '@astrojs/node';
@@ -13,6 +14,11 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap(),
+    basicrum({
+      brumSiteId: 'fdb7a2ed-d0ed-42a4-87ee-73c617da3965',
+      beaconEndpoint: 'https://beacon.beta.basicrum.com/beacon/catcher',
+      loader: 'non-consent',
+    }),
     decapCmsOauth({
       configPath: 'src/data/decap-config.yml',
       adminDisabled: true,
